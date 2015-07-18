@@ -26,7 +26,7 @@ echo "unpacking Guest account template"
 # which is copied into a directory in /tmp for use by guest when guest
 # logs in. 
 
-# uncomment the following to create guest-prefs. 
+# uncomment the following to create guest-prefs user 
 
 # useradd guest-prefs -m -s /bin/bash
 # echo "enter a password for guest-prefs"
@@ -34,7 +34,10 @@ echo "unpacking Guest account template"
 
 ## link guest session's directory to guest-pref's home 
 
-# mkdir /etc/guest-session
-# ln -s /home/guest-prefs /etc/guest-session/skel
+echo "linking guest session skel to guest-prefs"
+
+mkdir /etc/guest-session
+ln -s /home/guest-prefs /etc/guest-session/skel
+
 
 
