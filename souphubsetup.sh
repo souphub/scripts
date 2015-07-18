@@ -1,18 +1,21 @@
 #!/bin/bash
 
 # replace sources.list with ones using Catalyst's repositories
+echo "using Catalyst's Ubuntu repositories.  Replacing sources.list"
 
 cp sources.list /etc/apt/
 apt-get update
 
 # install extra software
-
+echo "installing extra software" 
+cat souphub_ubuntu_packages.txt
 apt-get install $(< souphub_ubuntu_packages.txt) 
 
 # Guest Template setup
-
+echo "unpacking Guest account template" 
 ./unpack_guest_prefs.sh
 
+# More Guest Template setup stuff
 # see https://help.ubuntu.com/community/CustomizeGuestSession
 
 # add user guest-prefs to provide a guest template
