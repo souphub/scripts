@@ -1,4 +1,5 @@
 openssh-server
 vlc
+google-chrome-stable
 
 

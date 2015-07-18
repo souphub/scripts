@@ -1,10 +1,21 @@
 #!/bin/bash
 
 # replace sources.list with ones using Catalyst's repositories
-echo "using Catalyst's Ubuntu repositories.  Replacing sources.list"
+# for Google Chrome repo see 
+# http://www.ubuntuupdates.org/ppa/google_chrome
+
+echo "using Catalyst's Ubuntu repositories, and Google's one for Chrome. "
+
+echo "Replacing sources.list"
 
 cp sources.list /etc/apt/
-apt-get update
+
+
+echo "fetching keys for Google's repo"
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - 
+
+echo "updating packages"
+apt-get update 
 
 # install extra software
 echo "installing extra software" 

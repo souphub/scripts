@@ -5,3 +5,6 @@ deb http://ubuntu.catalyst.net.nz/ubuntu trusty-security main restricted univers
 deb http://archive.canonical.com/ubuntu trusty partner 
 
 deb http://extras.ubuntu.com/ubuntu trusty main 
+
+# google repo for chrome browser 
+deb http://dl.google.com/linux/chrome/deb/ stable main
