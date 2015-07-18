@@ -1,0 +1,24 @@
+Setting up a souphub computer:
+
+Ubuntu Install: 
+
+The user being set up is the admin user.  Clients will use the guest login set up below. 
+
+* computer's name should be souphub#, where # is the next number after the maximum number used to date (e.g. souphub6) 
+
+* user should be Soup Hub 
+
+* username should be hubadmin 
+
+* ask John what the password should be 
+
+* keyboard US
+
+* location Wellington (type this in) (or accept the Auckland default)
+
+
+
+
+
+
+
