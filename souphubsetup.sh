@@ -22,6 +22,9 @@ echo "installing extra software"
 cat souphub_ubuntu_packages.txt
 apt-get install $(< souphub_ubuntu_packages.txt) 
 
+# configure unattended-upgrades
+dpkg-reconfigure unattended-upgrades 
+
 # Guest Template setup
 echo "unpacking Guest account template" 
 ./unpack_guest_prefs.sh
