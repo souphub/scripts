@@ -2,5 +2,4 @@ openssh-server
 unattended-upgrades
 vlc
 google-chrome-stable
-
-
+vim
