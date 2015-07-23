@@ -36,11 +36,4 @@ git clone https://github.com/souphub/scripts.git
 cd scripts
 ./souphubsetup.sh 
 
-
-
-
-
-
-
-
-
+Try to keep the script idempotent.  Currently ok to run it over and over. 
