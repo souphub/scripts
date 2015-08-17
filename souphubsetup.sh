@@ -5,6 +5,9 @@ if [[ $EUID -ne 0 ]]; then
     exit 1
 fi
 
+# run a grep function souphubsetup.sh to get an idea 
+# TODO: create usage function
+
 # replace sources.list with ones using Catalyst's repositories
 # for Google Chrome repo see 
 # http://www.ubuntuupdates.org/ppa/google_chrome
@@ -85,5 +88,13 @@ else
 fi 
 }
 link_guest_session
+
+function create_guest_data() {
+if [ ! -d "/var/guest-data" ]; then
+ echo "Creating persistent file share" 
+ mkdir -m 0777 /var/guest-data
+fi 
+}
+create_guest_data 
 
 exit 0
