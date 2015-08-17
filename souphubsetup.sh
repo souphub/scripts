@@ -89,6 +89,18 @@ fi
 }
 link_guest_session
 
+function install_guest_prefs() {
+  echo "Instaling /etc/guest-session/prefs.sh"
+  cp ./prefs.sh /etc/guest-session/prefs.sh
+}
+install_guest_prefs
+
+function install_auto_start() {
+  echo "Instaling /etc/guest-session/auto.sh"
+  cp ./auto.sh /etc/guest-session/auto.sh
+}
+install_auto_start
+
 function create_guest_data() {
 if [ ! -d "/var/guest-data" ]; then
  echo "Creating persistent file share" 
