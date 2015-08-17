@@ -3,6 +3,7 @@
 gsettings set org.gnome.desktop.session idle-delay 0
 gsettings set com.canonical.indicator.session suppress-restart-menuitem true
 gsettings set com.canonical.indicator.session suppress-shutdown-menuitem true
+gsettings set com.canonical.indicator.session suppress-suspend-menuitem true
 gsettings set com.canonical.indicator.datetime show-day true
 gsettings set com.canonical.indicator.datetime show-seconds true
 gsettings set com.canonical.indicator.datetime show-date true
