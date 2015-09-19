@@ -121,7 +121,7 @@ fi
 create_guest_data 
 
 function setup_samba() {
-if [ ! -f "/etc/samba/smb.conf" ]; then
+if [ ! -f "/etc/samba/smb.conf.orig" ]; then
     echo "* Looks like Samba not setup, doing that now" 
     mv -v /etc/samba/smb.conf /etc/samba/smb.conf.orig
     cp -v $HUBADMINDIR/smb.conf /etc/samba/smb.conf
