@@ -13,41 +13,49 @@ fi
 # http://www.ubuntuupdates.org/ppa/google_chrome
 
 function setup_repos() {
-echo "using Catalyst's Ubuntu repositories, and Google's one for Chrome. "
-echo "Replacing sources.list"
+echo "* Replacing sources.list"
 cp sources.list /etc/apt/
 }
 setup_repos
 
-function setup_google() {
-echo "fetching keys for Google's repo"
-wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - 
-}
-setup_google
-
-function run_apt_update() {
-echo "updating packages"
-apt-get update
-}
-run_apt_update
-
 function setup_pkgs() {
 # install extra software
-echo "installing extra software" 
+echo "* Installing extra software" 
 cat souphub_ubuntu_packages.txt
 apt-get install $(< souphub_ubuntu_packages.txt) 
 }
 setup_pkgs
 
+function run_apt_update() {
+echo "* Updating packages"
+apt-get update
+}
+run_apt_update
+
+function setup_google() {
+if [ ! -f "/etc/apt/sources.list.d/google-chrome.list" ]; then
+echo "* Setting up Google Chrome"
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - 
+# package sets up the repo, probably need to download package for first install
+apt-get update
+apt-get install google-chrome-stable
+fi
+}
+setup_google
+
 function setup_unattended() {
 # configure unattended-upgrades
+# not sure when this file gets added: 
+# /etc/apt/apt.conf.d/50unattended-upgrades
+# might add a check to skip later
 dpkg-reconfigure unattended-upgrades 
 }
-setup_unattended
+#setup_unattended
 
 function setup_guest_prefs() {
 # Guest Template setup
-echo "unpacking Guest account template" 
+echo "* Unpacking Guest account template"
+# TODO: fix with full path someday: 
 ./unpack_guest_prefs.sh
 }
 setup_guest_prefs
@@ -66,12 +74,12 @@ setup_guest_prefs
 function check_for_guest_prefs_user() {
 id -u guest-prefs &>/dev/null
 if [[ $? -ne 0 ]]; then
-    echo "Setting up guest-prefs user" 
+    echo "* Setting up guest-prefs user" 
     useradd guest-prefs -m -s /bin/bash
-    echo "enter a password for guest-prefs"
+    echo " * enter a password for guest-prefs"
     passwd guest-prefs
 else
-    echo "Looks like the guest-prefs user is setup already" 
+    echo "* Looks like the guest-prefs user is setup already" 
 fi
 }
 check_for_guest_prefs_user
@@ -80,30 +88,30 @@ check_for_guest_prefs_user
 
 function link_guest_session() {
 if [ ! -d "/etc/guest-session" ]; then
-    echo "linking guest session skel to guest-prefs"
+    echo "* linking guest session skel to guest-prefs"
     mkdir /etc/guest-session
     ln -s /home/guest-prefs /etc/guest-session/skel
 else
-    echo "Looks like we linked the guest session skel to guest-prefs already" 
+    echo "* Looks like we linked the guest session skel to guest-prefs already" 
 fi 
 }
 link_guest_session
 
 function install_guest_prefs() {
-  echo "Instaling /etc/guest-session/prefs.sh"
+  echo "* Instaling /etc/guest-session/prefs.sh"
   cp ./prefs.sh /etc/guest-session/prefs.sh
 }
 install_guest_prefs
 
 function install_auto_start() {
-  echo "Instaling /etc/guest-session/auto.sh"
+  echo "* Instaling /etc/guest-session/auto.sh"
   cp ./auto.sh /etc/guest-session/auto.sh
 }
 install_auto_start
 
 function create_guest_data() {
 if [ ! -d "/var/guest-data" ]; then
- echo "Creating persistent file share" 
+ echo "* Creating persistent file share" 
  mkdir -m 0777 /var/guest-data
 fi 
 }
