@@ -5,6 +5,8 @@ if [[ $EUID -ne 0 ]]; then
     exit 1
 fi
 
+HUBADMINDIR="/home/hubadmin/SouphubSetup/scripts" 
+
 # run a grep function souphubsetup.sh to get an idea 
 # TODO: create usage function
 
@@ -118,4 +120,11 @@ fi
 }
 create_guest_data 
 
-exit 0
+function setup_samba() {
+if [ ! -f "/etc/samba/smb.conf" ]; then
+    echo "* Looks like Samba not setup, doing that now" 
+    mv -v /etc/samba/smb.conf /etc/samba/smb.conf.orig
+    cp -v $HUBADMINDIR/smb.conf /etc/samba/smb.conf
+    /etc/init.d/smbd reload 
+fi
+setup_samba
