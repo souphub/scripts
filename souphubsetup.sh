@@ -127,4 +127,5 @@ if [ ! -f "/etc/samba/smb.conf" ]; then
     cp -v $HUBADMINDIR/smb.conf /etc/samba/smb.conf
     /etc/init.d/smbd reload 
 fi
+}
 setup_samba
