@@ -56,6 +56,7 @@ function setup_guest_prefs() {
 # Guest Template setup
 echo "* Unpacking Guest account template"
 # TODO: fix with full path someday: 
+# also how to skip if not changed?
 ./unpack_guest_prefs.sh
 }
 setup_guest_prefs
