@@ -129,3 +129,13 @@ if [ ! -f "/etc/samba/smb.conf.orig" ]; then
 fi
 }
 setup_samba
+
+# Depoly session timer script
+function install_session_timer() {
+if [ ! -f "/usr/local/sbin/guest-session-timeout.sh" ]; then
+   echo "* Installing guest timeout script" 
+   cp -v ./guest-session-timeout.sh /usr/local/sbin/guest-session-timeout.sh
+   chmod +x /usr/local/sbin/guest-session-timeout.sh
+fi   
+}
+install_session_timer
