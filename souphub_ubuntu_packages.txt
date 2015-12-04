@@ -3,3 +3,5 @@ unattended-upgrades
 vlc
 vim
 samba
+at
+wmctl
