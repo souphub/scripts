@@ -11,6 +11,6 @@ gsettings set com.canonical.indicator.datetime show-date true
 gsettings set com.canonical.indicator.datetime show-week-numbers true
 gsettings set com.canonical.indicator.datetime show-year true
 # TODO set a time app to start here
-(sleep 60;  /usr/local/sbin/thirty-minute-warning.sh) &
-(sleep 120; /usr/local/sbin/three-minutes-left.sh) & 
-(sleep 160; /usr/bin/gnome-session-quit --force) 
+(sleep 1800;  /usr/local/sbin/thirty-minute-warning.sh) &
+(sleep 2520; /usr/local/sbin/three-minutes-left.sh) & 
+(sleep 2700; /usr/bin/gnome-session-quit --force) 
