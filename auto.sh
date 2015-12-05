@@ -10,3 +10,4 @@ gsettings set com.canonical.indicator.datetime show-date true
 gsettings set com.canonical.indicator.datetime show-week-numbers true
 gsettings set com.canonical.indicator.datetime show-year true
 # TODO set a time app to start here
+/usr/bin/at -f /usr/local/sbin/thirty-minute-warning.sh now + 30 minutes
