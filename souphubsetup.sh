@@ -136,7 +136,9 @@ function install_session_timer() {
 if [ ! -f "/usr/local/sbin/thirty-minute-warning.sh" ]; then
    echo "* Installing guest timeout scripts"
    cp -v ./thirty-minute-warning.sh /usr/local/sbin/thirty-minute-warning.sh
+   cp -v ./three-minutes-left.sh /usr/local/sbin/three-minutes-left.sh
    chmod +x /usr/local/sbin/thirty-minute-warning.sh
+   chmod +x /usr/local/sbin/three-minutes-left.sh
 fi
 }
 install_session_timer
