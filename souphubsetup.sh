@@ -133,8 +133,8 @@ setup_samba
 # Depoly session timer script
 function install_session_timer() {
 if [ ! -f "/usr/local/sbin/thirty-minute-warning.sh" ]; then
-   echo "* Installing guest timeout script"
-   cp -v ./guest-session-timeout.sh /usr/local/sbin/thirty-minute-warning.sh
+   echo "* Installing guest timeout scripts"
+   cp -v ./thirty-minute-warning.sh /usr/local/sbin/thirty-minute-warning.sh
    chmod +x /usr/local/sbin/thirty-minute-warning.sh
 fi
 }
