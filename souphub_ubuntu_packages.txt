@@ -4,4 +4,4 @@ vlc
 vim
 samba
 at
-wmctl
+wmctrl

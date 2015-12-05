@@ -20,6 +20,13 @@ cp sources.list /etc/apt/
 }
 setup_repos
 
+function run_apt_update() {
+echo "* Updating packages"
+apt-get update
+}
+run_apt_update
+
+
 function setup_pkgs() {
 # install extra software
 echo "* Installing extra software" 
@@ -27,12 +34,6 @@ cat souphub_ubuntu_packages.txt
 apt-get install $(< souphub_ubuntu_packages.txt) 
 }
 setup_pkgs
-
-function run_apt_update() {
-echo "* Updating packages"
-apt-get update
-}
-run_apt_update
 
 function setup_google() {
 if [ ! -f "/etc/apt/sources.list.d/google-chrome.list" ]; then
