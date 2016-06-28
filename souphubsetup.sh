@@ -140,3 +140,10 @@ function install_session_timer() {
    chmod +x /usr/local/sbin/three-minutes-left.sh
 }
 install_session_timer
+
+# Setup scanner clients 
+function setup_scanner_clients() {
+  echo "* Copying saned net config in place" 
+  cp -v ./net.conf /etc/sane.d/net.conf
+}
+setup_scanner_clients
