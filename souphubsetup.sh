@@ -35,16 +35,13 @@ apt-get install $(< souphub_ubuntu_packages.txt)
 }
 setup_pkgs
 
-function setup_google() {
+function setup_include_google-chrome() {
 if [ ! -f "/etc/apt/sources.list.d/google-chrome.list" ]; then
 echo "* Setting up Google Chrome"
-wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - 
-# package sets up the repo, probably need to download package for first install
-apt-get update
-apt-get install google-chrome-stable
+/bin/bash ./setup_includes/setup_google-chrome.sh
 fi
 }
-setup_google
+setup_include_google-chrome
 
 function setup_unattended() {
 # configure unattended-upgrades
@@ -143,7 +140,7 @@ install_session_timer
 
 # Setup scanner clients 
 function setup_scanner_clients() {
-  echo "* Copying saned net config in place" 
-  cp -v ./net.conf /etc/sane.d/net.conf
+  echo "* Run commands from the setup_scanner directory,"
+  echo "  if you want to setup a scanner client or server." 
 }
 setup_scanner_clients
