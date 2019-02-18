@@ -88,9 +88,9 @@ check_for_guest_prefs_user
 ## link guest session's directory to guest-pref's home 
 
 function link_guest_session() {
-if [ ! -d "/etc/guest-session" ]; then
+if [ ! -h "/etc/guest-session/skel" ]; then
     echo "* linking guest session skel to guest-prefs"
-    mkdir /etc/guest-session
+    #mkdir /etc/guest-session <- this is already getting setup somewhere else
     ln -s /home/guest-prefs /etc/guest-session/skel
 else
     echo "* Looks like we linked the guest session skel to guest-prefs already" 
