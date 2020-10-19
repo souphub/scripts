@@ -7,7 +7,7 @@ fi
 
 HUBADMINDIR="/home/hubadmin/SouphubSetup/scripts" 
 
-# run a grep function souphubsetup.sh to get an idea 
+# run a "grep function souphubsetup.sh" to get an idea 
 # TODO: create usage function
 
 # replace sources.list with ones using Catalyst's repositories
@@ -29,7 +29,7 @@ run_apt_update
 
 function setup_pkgs() {
 # install extra software
-echo "* Installing extra software" 
+echo "* Installing extra software"
 cat souphub_ubuntu_packages.txt
 apt-get install $(< souphub_ubuntu_packages.txt) 
 }
