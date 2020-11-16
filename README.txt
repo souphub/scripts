@@ -1,4 +1,6 @@
-Setting up a souphub computer:
+Shell scripts for setting up a Soup Hub computer:
+
+* https://souphub.org.nz/
 
 Overview: 
 1) Install Ubuntu
@@ -7,6 +9,8 @@ Overview:
 
 
 1) Ubuntu Install: 
+
+This is based on Ubuntu 16.04 Desktop installer.  
 
 The user being set up is the admin user.  Clients will use the guest login set up below. 
 
@@ -24,7 +28,7 @@ The user being set up is the admin user.  Clients will use the guest login set u
 
 2) SoupHub Scripts
 
-run the following: 
+Run the following after installer is finished: 
 
 sudo apt-get install git
 mkdir SouphubSetup 
@@ -36,4 +40,6 @@ git clone https://github.com/souphub/scripts.git
 cd scripts
 ./souphubsetup.sh 
 
-Try to keep the script idempotent.  Currently ok to run it over and over. 
+Try to keep the script idempotent.  Currently it is ok to run the script repeatedly.
+
+TODO: Test how the script doesn't work on Ubuntu 20.04. 
