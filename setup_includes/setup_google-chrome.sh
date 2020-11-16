@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
-# Possibly will be called from souphubsetup.sh
-# Setup google chrome repo and browswer 
+# Called from souphubsetup.sh
+# Setup google chrome repo and browser plus unattended updates for it
 
 function setup_google() {
 if [ ! -f "/etc/apt/sources.list.d/google-chrome.list" ]; then
@@ -13,3 +13,11 @@ apt-get install google-chrome-stable
 fi
 }
 setup_google
+
+function setup_unattended_google() {
+if [ ! "/etc/apt/apt.conf.d/google-chrome" ]; then
+echo "* Setting up unattended updates for Google Chrome" 
+echo "Unattended-Upgrade::Origins-Pattern:: \"origin=Google LLC\";" > /etc/apt/apt.conf.d/google-chrome
+fi
+}
+setup_unattended_google

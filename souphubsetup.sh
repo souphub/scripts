@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ $EUID -ne 0 ]]; then
-    echo "Certain things require privileges" 2>&1
+    echo "This script must be run w/ sudo or as root" 2>&1
     exit 1
 fi
 
@@ -31,7 +31,7 @@ function setup_pkgs() {
 # install extra software
 echo "* Installing extra software"
 cat souphub_ubuntu_packages.txt
-apt-get install $(< souphub_ubuntu_packages.txt) 
+apt-get install "$(< souphub_ubuntu_packages.txt)"
 }
 setup_pkgs
 
@@ -128,7 +128,7 @@ fi
 }
 setup_samba
 
-# Depoly session timer script
+# Deploy session timer script
 function install_session_timer() {
    echo "* Installing guest timeout scripts"
    cp -v ./thirty-minute-warning.sh /usr/local/sbin/thirty-minute-warning.sh
