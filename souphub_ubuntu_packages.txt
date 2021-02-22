@@ -9,3 +9,5 @@ ttf-mscorefonts-installer
 clamtk
 musescore
 audacity
+gnuchess
+xboard
