@@ -7,3 +7,5 @@ at
 wmctrl
 ttf-mscorefonts-installer
 clamtk
+musescore
+audacity
