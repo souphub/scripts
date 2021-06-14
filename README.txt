@@ -42,4 +42,8 @@ cd scripts
 
 Try to keep the script idempotent.  Currently it is ok to run the script repeatedly.
 
-TODO: Test how the script doesn't work on Ubuntu 20.04. 
+TODO: Not really tested on Ubuntu 20.04, workstations were upgraded in place but some tweaks to fix things up after the upgrade mostly included. 
+
+The "Guest Session" added back after the 18.04 upgrade per: 
+
+* https://askubuntu.com/questions/1112349/how-to-enable-guest-sessions-on-ubuntu-18-04-or-later 
