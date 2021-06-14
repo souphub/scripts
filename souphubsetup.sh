@@ -144,3 +144,8 @@ function setup_scanner_clients() {
   echo "  if you want to setup a scanner client or server." 
 }
 setup_scanner_clients
+
+function disable_gnome_initial_setup() {
+  echo "* Disable the gnome initial setup message"
+  sudo bash -c 'echo "X-GNOME-Autostart-enabled=false" >> /etc/xdg/autostart/gnome-initial-setup-first-login.desktop'
+}
