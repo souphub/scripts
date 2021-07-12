@@ -47,3 +47,7 @@ TODO: Not really tested on Ubuntu 20.04, workstations were upgraded in place but
 The "Guest Session" added back after the 18.04 upgrade per: 
 
 * https://askubuntu.com/questions/1112349/how-to-enable-guest-sessions-on-ubuntu-18-04-or-later 
+
+TODO: To remove "keyring authentication required" message from Chrome in the guest session, update this line
+
+`sed -i 's_Exec=/usr/bin/google-chrome-stable %U_Exec=/usr/bin/google-chrome-stable --password-store=basic %U_'  /home/guest-prefs/.local/share/applications/google-chrome.desktop`
