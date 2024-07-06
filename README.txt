@@ -1,4 +1,4 @@
-These were some shell scripts for managing a small public computer in a Soup Kitchen.  They are obsolete and no longer used or maintained.
+These were some shell scripts for managing a small public computer hub in a Soup Kitchen.  They are obsolete and no longer used or maintained.
 
 ####
 Shell scripts for setting up a Soup Hub computer:
